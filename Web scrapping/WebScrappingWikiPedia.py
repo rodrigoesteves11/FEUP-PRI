@@ -6,7 +6,7 @@ import requests
 def get_wikipedia_pages():
    
     wikipedia_base_url = 'https://en.wikipedia.org/wiki/'
-    fileR = open("wikiSpeciesFilterSpeciesV0.txt", "r")
+    fileR = open("testSample.txt", "r")
 
     species_data = {}
     
