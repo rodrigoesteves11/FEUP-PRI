@@ -1,7 +1,20 @@
 {
     "Nyctemera_integra": {
-        "introduction": "\n\nNyctemera baulus is a moth of the family Erebidae. It is found from India to Samoa. Records include Queensland, Indonesia and New Guinea.\n\nThe wingspan is 45–48 mm. It is a day-flying species.\n\nLarvae have been recorded on Brassica, Emilia, Senecio scandens and Crassocephalum.",
+        "introduction": "\n\nNyctemera leopoldi is a moth of the family Erebidae. It is found in Papua, where it has been recorded from the Bird's Head Peninsula (Arfak Mountains) and the Kobowre (Weyland) Mountains. It has also been recorded from Numfor island.\n\nThe length of the forewings is 19–22 mm.[1]",
         "sections": {},
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Nyctemera_baulus_-Mount_Coot-tha%2C_Queensland%2C_Australia-8.jpg/220px-Nyctemera_baulus_-Mount_Coot-tha%2C_Queensland%2C_Australia-8.jpg"
+        "scientific_classification": {
+            "Domain": "Eukaryota",
+            "Kingdom": "Animalia",
+            "Phylum": "Arthropoda",
+            "Class": "Insecta",
+            "Order": "Lepidoptera",
+            "Superfamily": "Noctuoidea",
+            "Family": "Erebidae",
+            "Subfamily": "Arctiinae",
+            "Genus": "Nyctemera",
+            "Species": "Nyctemera integra"
+        },
+        "who_discovered": "Tams",
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/OOjs_UI_icon_edit-ltr.svg/15px-OOjs_UI_icon_edit-ltr.svg.png"
     }
 }

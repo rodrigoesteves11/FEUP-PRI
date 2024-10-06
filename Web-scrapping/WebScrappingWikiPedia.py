@@ -13,7 +13,8 @@ def get_wikipedia_pages():
         
     for line in fileR:
            
-            wikipedia_url = wikipedia_base_url + line.strip()  
+            wikipedia_url = wikipedia_base_url + line.strip()
+            species_name = line.strip().replace("_", " ")  
             
         
             response = requests.get(wikipedia_url)
@@ -60,8 +61,33 @@ def get_wikipedia_pages():
 
 
                     infobox = body_content.find('table', {'class': 'infobox'})
+                    scientific_classification = {}
                     if infobox:
                         image_tags = infobox.find_all('img')
+                        rows = infobox.find_all('tr')
+                        is_taxonomy_section = False
+                        is_binomial_name = False
+                        for row in rows:
+                            th = row.find('a')
+                            td = row.find('td')
+
+                            if th and "Binomial name" in th.text:
+                                is_taxonomy_section = False
+                                is_binomial_name = True
+                                continue
+                        
+                            if th and "Scientific classification" in th.text:
+                                is_taxonomy_section = True
+                            if is_taxonomy_section and th and td:
+                                classification_key = td.text.strip().replace(":", "")
+                                classification_value = th.text.strip()
+                                scientific_classification[classification_key] = classification_value
+                            if is_binomial_name and th:
+                                who_discovered = th.text.strip()
+                                is_binomial_name = False
+
+                        scientific_classification['Species'] = species_name
+
                         if len(image_tags) > 0:
                             image_url = "https:" + image_tags[0]['src']
                             print(f"Imagem encontrada: {image_url}")
@@ -74,11 +100,15 @@ def get_wikipedia_pages():
                     introduction = "No body content found"
                     sections = "No body content found"
                     image_url = "No body content found"
+                    who_discovered = "No body content found"
+                    scientific_classification = "No body content found"
                              
                     
-                species_data[line.strip()] = {
+                species_data[species_name] = {
                 "introduction": introduction,
                 "sections": sections,
+                "scientific_classification": scientific_classification,
+                "who_discovered": who_discovered,
                 "image_url": image_url
                 }
                 print(f"Introdução: {introduction}")
