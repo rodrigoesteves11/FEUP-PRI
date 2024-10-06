@@ -41,34 +41,6 @@ def WikiSpeciesUnderScore():
         new_line = line.replace(" ", "_")
         fileW.write(new_line)
 
-#def filter_wikiSpecies():
-#    url = 'https://species.wikimedia.org/wiki/'
-#
-#    fileR = open("WikiSpeciesUnderScore.txt", "r")
-#    fileW = open("wikiSpeciesFilterSpecies.txt", "w")
-#
-#    keywords = ["Realm", "Regnum", "Phylum", "Classis", "Ordo","Familia", "Subfamilia", "Tribus", "Subtribus",  "Genus", "Species"]
-#
-#    for line in fileR:
-#        searchUrl = url + line.strip()
-#        response = requests.get(searchUrl)
-#        if response.status_code == 200:
-#
-#            tree = html.fromstring(response.content)
-#            checkKeyord = False
-#
-#            for keyword in keywords:
-#                str = '//a[contains(text(),"%s")]/@href' % keyword
-#                check = tree.xpath(str)
-#                if check:
-#                    checkKeyord=True
-#                    break
-#
-#            if checkKeyord:
-#                print(line)
-#                fileW.write(line)
- 
-
 def filter_wikiSpecies():
     url = 'https://species.wikimedia.org/wiki/'
 
@@ -88,6 +60,49 @@ def filter_wikiSpecies():
             if check:
                 print(line)
                 fileW.write(line)
+
+def fetch_and_filter_species(line, url, file_lock):
+    searchUrl = url + line.strip()
+    try:
+        response = requests.get(searchUrl)
+        if response.status_code == 200:
+            tree = html.fromstring(response.content)
+
+            xpath_str = '//h2[contains(text(),"Taxonavigation")]'
+            check = tree.xpath(xpath_str)
+
+            if check:
+                print(line.strip())  # Printing the species found
+                with file_lock:  # Ensure thread-safe file write
+                    with open("wikiSpeciesFilterSpecies.txt", "a") as fileW:
+                        fileW.write(line)
+    except Exception as e:
+        print(f"Error fetching {searchUrl}: {e}")
+
+def filter_wikiSpecies_gpt():
+    url = 'https://species.wikimedia.org/wiki/'
+    
+    # Reading all lines at once to avoid reading from the file in threads
+    with open("WikiSpeciesUnderScore.txt", "r") as fileR:
+        lines = fileR.readlines()
+
+    file_lock = Lock()  # Lock to handle file writing in threads
+
+    # Using ThreadPoolExecutor to manage multiple threads
+    with ThreadPoolExecutor(max_workers=50) as executor:
+        futures = [executor.submit(fetch_and_filter_species, line, url, file_lock) for line in lines]
+
+        # Ensuring all threads complete their work
+        for future in as_completed(futures):
+            try:
+                future.result()
+            except Exception as e:
+                print(f"Error in thread execution: {e}")
+
+#filter_wikiSpecies()
+
+#filter_wikiSpecies_gpt()
+
 
 def get_wikipedia_pages():
    
@@ -138,7 +153,5 @@ def get_wikipedia_pages():
     with open("species_data.json", "w", encoding="utf-8") as json_file:
         json.dump(species_data, json_file, ensure_ascii=False, indent=4)
 
-
-#filter_wikiSpecies()
 get_wikipedia_pages()
 
