@@ -61,6 +61,9 @@ def filter_wikiSpecies():
                 print(line)
                 fileW.write(line)
 
+
+
+#GPT MULTITHREAD
 def fetch_and_filter_species(line, url, file_lock):
     searchUrl = url + line.strip()
     try:
