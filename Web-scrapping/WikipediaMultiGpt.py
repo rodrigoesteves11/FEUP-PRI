@@ -2,6 +2,7 @@ import concurrent.futures
 from bs4 import BeautifulSoup
 import json
 import requests
+import re
 
 def fetch_species_data(species_name):
     wikipedia_base_url = 'https://en.wikipedia.org/wiki/'
@@ -24,7 +25,8 @@ def fetch_species_data(species_name):
                     first_heading_found = True
                     break
                 if element.name == 'p':
-                    intro_paragraphs.append(element.get_text().strip())
+                    clean_text = re.sub(r'\[\d+\]', '', element.get_text().strip())
+                    intro_paragraphs.append(clean_text)
                     
             introduction = '\n\n'.join(intro_paragraphs)
             
@@ -39,7 +41,8 @@ def fetch_species_data(species_name):
                     if next_element.name in ['h2', 'h3']:
                         break
                     if next_element.name == 'p':
-                        section_content.append(next_element.get_text().strip())
+                        clean_text = re.sub(r'\[\d+\]', '', next_element.get_text().strip())
+                        section_content.append(clean_text)
                     next_element = next_element.find_next()
                     
                 if section_content:
@@ -99,7 +102,7 @@ def fetch_species_data(species_name):
     return species_data
 
 def get_wikipedia_pages():
-    with open("WikiTXT/wikiPart6.txt", "r") as fileR: #HERE
+    with open("WikiTXT/wikiPart8.txt", "r") as fileR: #HERE
         species_list = [line.strip().replace("_", " ") for line in fileR]
 
     species_data = {}
@@ -110,7 +113,7 @@ def get_wikipedia_pages():
     for result in results:
         species_data.update(result)
 
-    with open("JsonParts/Species_data6.json", "w", encoding="utf-8") as json_file: #HERE
+    with open("JsonParts/Species_data8.json", "w", encoding="utf-8") as json_file: #HERE
         json.dump(species_data, json_file, ensure_ascii=False, indent=4)
 
 get_wikipedia_pages()
