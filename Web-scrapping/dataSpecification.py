@@ -3,7 +3,7 @@ import json
 file_paths = [
     'JsonParts/Species_data1.json', 'JsonParts/Species_data2.json', 'JsonParts/Species_data3.json', 
     'JsonParts/Species_data4.json', 'JsonParts/Species_data5.json', 'JsonParts/Species_data6.json',
-    'JsonParts/Species_data7.json'
+    'JsonParts/Species_data7.json', 'JsonParts/Species_data8.json'
 ]
 
 
@@ -76,5 +76,5 @@ print(f"Average char length in the introduction when sections are not null: {rou
 
 
 #### Creates a json global file
-with open('json_global.json', "w") as global_file:
-    json.dump(json_global, global_file, indent=4)
+#with open('json_global.json', "w") as global_file:
+#    json.dump(json_global, global_file, indent=4)
