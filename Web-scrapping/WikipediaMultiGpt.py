@@ -2,6 +2,7 @@ import concurrent.futures
 from bs4 import BeautifulSoup
 import json
 import requests
+import re
 
 def fetch_species_data(species_name):
     wikipedia_base_url = 'https://en.wikipedia.org/wiki/'
@@ -24,7 +25,8 @@ def fetch_species_data(species_name):
                     first_heading_found = True
                     break
                 if element.name == 'p':
-                    intro_paragraphs.append(element.get_text().strip())
+                    clean_text = re.sub(r'\[\d+\]', '', element.get_text().strip())
+                    intro_paragraphs.append(clean_text)
                     
             introduction = '\n\n'.join(intro_paragraphs)
             
@@ -39,7 +41,8 @@ def fetch_species_data(species_name):
                     if next_element.name in ['h2', 'h3']:
                         break
                     if next_element.name == 'p':
-                        section_content.append(next_element.get_text().strip())
+                        clean_text = re.sub(r'\[\d+\]', '', next_element.get_text().strip())
+                        section_content.append(clean_text)
                     next_element = next_element.find_next()
                     
                 if section_content:
@@ -48,17 +51,23 @@ def fetch_species_data(species_name):
             infobox = body_content.find('table', {'class': 'infobox'})
             scientific_classification = {}
             who_discovered = "Not found"
+            conservation_status = "Not found"
             if infobox:
                 image_tags = infobox.find_all('img')
                 rows = infobox.find_all('tr')
                 is_taxonomy_section = False
                 is_binomial_name = False
+                is_conservation_status = False
                 for row in rows:
                     th = row.find('a')
                     td = row.find('td')
                     if th and "Binomial name" in th.text:
                         is_taxonomy_section = False
                         is_binomial_name = True
+                        continue
+                    if th and "Conservation status" in th.text:
+                        is_taxonomy_section = False
+                        is_conservation_status = True
                         continue
                     if th and "Scientific classification" in th.text:
                         is_taxonomy_section = True
@@ -69,6 +78,9 @@ def fetch_species_data(species_name):
                     if is_binomial_name and th:
                         who_discovered = th.text.strip()
                         is_binomial_name = False
+                    if is_conservation_status and th:
+                        conservation_status = th.text.strip()
+                        is_conservation_status = False
                 
                 scientific_classification['Species'] = species_name
                 
@@ -85,12 +97,14 @@ def fetch_species_data(species_name):
             image_url = "No body content found"
             who_discovered = "No body content found"
             scientific_classification = "No body content found"
+            conservation_status = "No body content found"
                     
         species_data[species_name] = {
             "introduction": introduction,
             "sections": sections,
             "scientific_classification": scientific_classification,
             "who_discovered": who_discovered,
+            "conservation_status": conservation_status,
             "image_url": image_url
         }
     else:
@@ -99,7 +113,7 @@ def fetch_species_data(species_name):
     return species_data
 
 def get_wikipedia_pages():
-    with open("wikiPart4.txt", "r") as fileR: #HERE
+    with open("WikiTXT/wikiPart1.txt", "r") as fileR: #HERE
         species_list = [line.strip().replace("_", " ") for line in fileR]
 
     species_data = {}
@@ -110,7 +124,7 @@ def get_wikipedia_pages():
     for result in results:
         species_data.update(result)
 
-    with open("JsonParts/Species_data4.json", "w", encoding="utf-8") as json_file: #HERE
+    with open("JsonParts/Species_data1.json", "w", encoding="utf-8") as json_file: #HERE
         json.dump(species_data, json_file, ensure_ascii=False, indent=4)
 
 get_wikipedia_pages()
