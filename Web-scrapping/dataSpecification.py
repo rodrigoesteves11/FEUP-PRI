@@ -3,8 +3,8 @@ import csv
 
 file_paths = [
     'JsonParts/Species_data1.json', 'JsonParts/Species_data2.json', 'JsonParts/Species_data3.json', 
-    'JsonParts/Species_data4.json', 'JsonParts/Species_data5.json', 'JsonParts/Species_data6.json',
-    'JsonParts/Species_data7.json', 'JsonParts/Species_data8.json'
+    'JsonParts/Species_data4.json'#, 'JsonParts/Species_data5.json', 'JsonParts/Species_data6.json',
+    #'JsonParts/Species_data7.json', 'JsonParts/Species_data8.json'
 ]
 
 
@@ -83,14 +83,20 @@ newEntries = 0
 
 with open('data.csv', 'w', newline='') as file:
     writer = csv.writer(file)
-    field = ["name", "kingdom", "Has_known_discoverer", "introduction_length", "Number_of_sections", "Sections_length"]
+    field = ["name", "kingdom", "Has_known_discoverer", "introduction_length", "Number_of_sections", "Sections_length", "conservation_status"]
 
     writer.writerow(field)
 
     for key,entry in json_global.items():
         sectionsSize = 0
         who_discovered = "Yes"
-        
+        conservation_status = "No data"
+
+        print(entry.get("conservation_status"))
+
+        if(entry.get("conservation_status") != "Not found"):
+            conservation_status = entry.get("conservation_status")
+
         if(entry.get('who_discovered') == "Not found"):
             who_discovered = "No"
 
@@ -99,7 +105,7 @@ with open('data.csv', 'w', newline='') as file:
             sectionsSize += len(content)
 
         writer.writerow([key, entry.get('scientific_classification').get('Kingdom'), who_discovered,
-                         len(entry.get('introduction')),len(entry.get('sections')), sectionsSize])
+                         len(entry.get('introduction')),len(entry.get('sections')), sectionsSize, conservation_status])
 
 
 #### Creates a json global file
