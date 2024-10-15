@@ -124,7 +124,7 @@ def get_wikipedia_pages():
     for result in results:
         species_data.update(result)
 
-    with open("JsonParts/Species_data5.json", "w", encoding="utf-8") as json_file: #HERE
+    with open("JsonParts/Species_data5.json", "w", encoding="utf-8") as json_file: #HERE 5 and 7 missing
         json.dump(species_data, json_file, ensure_ascii=False, indent=4)
 
 get_wikipedia_pages()
