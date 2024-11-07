@@ -1,0 +1,30 @@
+--create container 
+
+sudo docker run -p 8983:8983 --name meic_solrr -v /home/n00n/Desktop/MEIC/pri/MEIC-PRI/data -d solr:9 solr-precreate courses
+
+
+
+--delete core
+
+sudo docker exec meic_solrr bin/solr delete -c courses
+
+
+
+-- change schema
+
+curl -X POST -H 'Content-type:application/json' --data-binary "@meic_courses.json" http://localhost:8983/solr/courses/schema
+
+
+-- create core
+
+sudo docker exec meic_solrr bin/solr create_core -c courses
+
+-- input document
+
+curl -X POST -H 'Content-type:application/json' --data-binary "@meic_courses.json" http://localhost:8983/solr/courses/update?commit=true
+
+
+-- delete content in species
+
+curl -X POST -H 'Content-Type: application/json' --data-binary '{"delete": {"query": "*:*"}}' http://localhost:8983/solr/speciesV0/update?commit=true
+

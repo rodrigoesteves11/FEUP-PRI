@@ -107,5 +107,5 @@ with open('data.csv', 'w', newline='') as file:
 
 
 #### Creates a json global file
-#with open('json_global.json', "w") as global_file:
-#    json.dump(json_global, global_file, indent=4)
+with open('json_global.json', "w") as global_file:
+    json.dump(json_global, global_file, indent=4)
