@@ -11,7 +11,7 @@ file_paths = [
 json_global = {}
 
 for fileJ in file_paths:
-    with open(fileJ,"r") as file:
+    with open(fileJ, "r", encoding="utf-8") as file:  # Add encoding="utf-8"
         data = json.load(file)
         json_global.update(data)
 

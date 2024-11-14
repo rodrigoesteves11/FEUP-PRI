@@ -1,0 +1,7 @@
+{
+    "query": "distribution_and_habitat:portugal",
+    "fields": "id, name, conservation_status, distribution_and_habitat, score",
+    "params": {
+        "defType": "edismax"
+    }
+}
