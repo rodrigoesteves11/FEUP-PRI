@@ -28,3 +28,8 @@ curl -X POST -H 'Content-type:application/json' --data-binary "@meic_courses.jso
 
 curl -X POST -H 'Content-Type: application/json' --data-binary '{"delete": {"query": "*:*"}}' http://localhost:8983/solr/speciesV0/update?commit=true
 
+
+-- Add Species data
+
+curl -X POST -H 'Content-type:application/json' --data-binary "@transformed_species_data.json" http://localhost:8983/solr/speciesV0/update?commit=true
+
