@@ -35,7 +35,9 @@ curl -X POST -H 'Content-type:application/json' --data-binary "@transformed_spec
 
 -- Submit query and convert results to TREC format
 
-./scripts/query_solr.py --query query.json --uri http://localhost:8983/solr --collection species | ./scripts/solr2trec.py > results_trec.txt
+./../scripts/query_solr.py --query query.json --uri http://localhost:8983/solr --collection species | ./../scripts/solr2trec.py > results_trec.txt
+
+(In case permission denied for both files): chmod +x ./../scripts/FILE.py
 
 -- Convert qrels into TREC format and then manually judge the relevance (0 for non-relevant, 1 for relevant)
 

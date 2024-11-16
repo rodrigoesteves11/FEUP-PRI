@@ -26,11 +26,11 @@ introduction: (huge largest)
 
 INFORMATION NEED:
 
-What are the aquatic species with a lifespan of 20 years.
+What is the lifespan or years of the aquatic species that frequent the atlantic ocean.
 
 QUERY:
 
-sections: (aquatic lifespan 20 years)
+sections: (lifespan years) AND (atlantic AND Aquatic) 
 introduction: (lifespan AND aquatic AND 20)
 
 
