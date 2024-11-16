@@ -1,0 +1,61 @@
+INFORMATION NEED:
+
+I Want to know the dangerous and venomous animals that exist in Europe
+
+QUERY:
+
+sections: (dangerous venomous animal Europe)
+introduction: (venomous AND animal)
+
+
+
+
+
+INFORMATION NEED:
+
+What are the largest and huge animals in the planet earth.
+
+QUERY:
+
+sections: (largest huge animal)
+introduction: (huge largest)
+
+
+
+
+
+INFORMATION NEED:
+
+What are the aquatic species with a lifespan of 20 years.
+
+QUERY:
+
+sections: (aquatic lifespan 20 years)
+introduction: (lifespan AND aquatic AND 20)
+
+
+
+INFORMATION NEED:
+
+
+I want to know the endangered species that currently habit in Portugal
+
+
+QUERY:
+
+sections: (endangered species Portugal)
+introduction: (endangered Portugal)
+
+
+
+
+INFORMATION NEED:
+
+Im visiting australia, I want to know the dangerous species to avoid.
+
+
+QUERY:
+
+sections: (dangerous australia)
+introduction: (dangerous australia)
+
