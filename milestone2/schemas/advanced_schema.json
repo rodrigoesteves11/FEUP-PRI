@@ -1,0 +1,18 @@
+{
+	"add-field-type": [
+    ],
+    "add-field": [
+        {
+            "name": "introduction",
+            "type": "text_general"
+        },
+        {
+            "name": "sections",
+            "type": "text_general"
+        },
+        {
+            "name": "kingdom",
+            "type": "text_general"
+        }
+    ]
+}
