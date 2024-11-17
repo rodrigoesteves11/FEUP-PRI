@@ -20,8 +20,10 @@ def main(qrels_file: str, output_file: str):
     # Read qrels (ground truth) from the specified file in TREC format
     with open(qrels_file, "r") as f:
         y_true = {
-            line.strip().split()[2] for line in f
-        }  # Use a set for fast lookup of relevant document IDs
+            line.strip().split()[2]  # Document ID
+            for line in f
+            if int(line.strip().split()[3]) > 0  # Include only if relevance score > 0
+    }
 
     # Read predicted document IDs from stdin (TREC format: assume the third column contains the doc_id)
     y_pred = [
@@ -32,6 +34,10 @@ def main(qrels_file: str, output_file: str):
     if not y_pred or not y_true:
         print("Error: No predictions or qrels found. Please provide valid input.")
         sys.exit(1)
+
+    relevant_positions = [i for i, doc in enumerate(y_pred, start=1) if doc in y_true]
+
+    print("Relevant Document Positions:", relevant_positions)
 
     # Calculate precision, recall, and keep track of relevant ranks for MAP calculation
     precision = []
