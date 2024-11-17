@@ -17,7 +17,7 @@ curl -X POST -H 'Content-type:application/json' --data-binary "@meic_courses.jso
 
 -- create core
 
-sudo docker exec meic_solrr bin/solr create_core -c courses
+sudo docker exec meic_solr bin/solr create_core -c courses
 
 -- input document
 
