@@ -45,37 +45,31 @@
             "class": "solr.TextField",
             "indexAnalyzer": {
                 "tokenizer": {
-                    "class": "solr.StandardTokenizerFactory"
+                    "class": "solr.KeywordTokenizerFactory"
                 },
                 "filters": [
                     {
                         "class": "solr.SynonymGraphFilterFactory",
-                        "synonyms": "synonyms.txt",
+                        "synonyms": "kingdom_synonyms.txt",
                         "expand": true
                     },
                     {
                         "class": "solr.LowerCaseFilterFactory"
-                    },
-                    {
-                        "class": "solr.PorterStemFilterFactory"
                     }
                 ]
             },
             "queryAnalyzer": {
                 "tokenizer": {
-                    "class": "solr.StandardTokenizerFactory"
+                    "class": "solr.KeywordTokenizerFactory"
                 },
                 "filters": [
                     {
                         "class": "solr.SynonymGraphFilterFactory",
-                        "synonyms": "synonyms.txt",
+                        "synonyms": "kingdom_synonyms.txt",
                         "expand": true
                     },
                     {
                         "class": "solr.LowerCaseFilterFactory"
-                    },
-                    {
-                        "class": "solr.PorterStemFilterFactory"
                     }
                 ]
             }
@@ -85,17 +79,20 @@
         {
             "name": "introduction",
             "type": "text_with_synonyms",
-            "indexed": true
+            "indexed": true,
+            "stored": true
         },
         {
             "name": "sections",
             "type": "text_with_synonyms",
-            "indexed": true
+            "indexed": true,
+            "stored": true
         },
         {
             "name": "kingdom",
             "type": "convert_kingdom",
-            "indexed": true
+            "indexed": true,
+            "stored": true
         }
     ]
 }

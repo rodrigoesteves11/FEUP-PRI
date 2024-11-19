@@ -1,0 +1,9 @@
+{
+    "query": "(perigous dangerous) AND australia",
+    "fields": "id, name, kingdom, introduction, sections, score",
+    "params": {
+        "defType": "edismax",
+        "qf": "introduction^3 sections",
+        "rows": 50
+    }
+}

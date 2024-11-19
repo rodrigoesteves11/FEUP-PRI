@@ -12,14 +12,18 @@ sudo docker exec meic_solrr bin/solr delete -c courses
 
 -- change schema
 
-curl -X POST -H 'Content-type:application/json' --data-binary "@meic_courses.json" http://localhost:8983/solr/courses/schema
+curl -X POST -H 'Content-type:application/json' --data-binary "@advanced_schema.json" http://localhost:8983/solr/speciesv2/schema
+
+-- copy kingdom_synonyms.txt to solr
+
+sudo docker cp /home/n00n/Desktop/MEIC/PRI/MEIC-PRI/milestone2/schemas/kingdom_synonyms.txt meic_solr:/var/solr/data/speciesv2/conf
 
 
 -- create core
 
-sudo docker exec meic_solr bin/solr create_core -c courses
+sudo docker exec meic_solr bin/solr create_core -c speciesv2
 
--- input document
+-- input documents
 
 curl -X POST -H 'Content-type:application/json' --data-binary "@meic_courses.json" http://localhost:8983/solr/courses/update?commit=true
 
@@ -31,7 +35,7 @@ curl -X POST -H 'Content-Type: application/json' --data-binary '{"delete": {"que
 
 -- Add Species data
 
-curl -X POST -H 'Content-type:application/json' --data-binary "@transformed_species_data.json" http://localhost:8983/solr/speciesV0/update?commit=true
+curl -X POST -H 'Content-type:application/json' --data-binary "@transformed_species_data.json" http://localhost:8983/solr/speciesv2/update?commit=true
 
 -- Submit query and convert results to TREC format
 
