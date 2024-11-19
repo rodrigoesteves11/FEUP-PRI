@@ -6,7 +6,7 @@ sudo docker run -p 8983:8983 --name meic_solrr -v /home/n00n/Desktop/MEIC/pri/ME
 
 --delete core
 
-sudo docker exec meic_solr bin/solr delete -c courses
+sudo docker exec meic_solr bin/solr delete -c speciesv2
 
 
 
