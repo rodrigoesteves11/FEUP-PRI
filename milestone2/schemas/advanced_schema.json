@@ -1,7 +1,7 @@
 {
     "add-field-type": [
         {
-            "name": "text_with_synonyms",
+            "name": "advanced_search",
             "class": "solr.TextField",
             "indexAnalyzer": {
                 "tokenizer": {
@@ -112,13 +112,13 @@
     "add-field": [
         {
             "name": "introduction",
-            "type": "text_with_synonyms",
+            "type": "advanced_search",
             "indexed": true,
             "stored": true
         },
         {
             "name": "sections",
-            "type": "text_with_synonyms",
+            "type": "advanced_search",
             "indexed": true,
             "stored": true
         },

@@ -1,5 +1,5 @@
 {
-    "query": "(largest huge) AND animal",
+    "query": "(largest huge size) AND animal",
     "fields": "id, name, kingdom, introduction, sections, score",
     "params": {
         "defType": "edismax",
