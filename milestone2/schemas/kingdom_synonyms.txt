@@ -1,13 +1,6 @@
-animal => animalia
-plant => plantae
+animal, animals => animalia
+plant, plants => plantae
 fungus => fungi
-protist => protista
-bacteria => eubacteria
-archaea => archaebacteria
-
-animals => animalia
-plants => plantae
-fungus => fungi
-protists => protista
-bacterias => eubacteria
-archaeas => archaebacteria
+protist, protists => protista
+bacteria, bacterias => eubacteria
+archaea, archaeas => archaebacteria

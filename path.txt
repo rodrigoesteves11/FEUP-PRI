@@ -6,7 +6,7 @@ sudo docker run -p 8983:8983 --name meic_solrr -v /home/n00n/Desktop/MEIC/pri/ME
 
 --delete core
 
-sudo docker exec meic_solrr bin/solr delete -c courses
+sudo docker exec meic_solr bin/solr delete -c courses
 
 
 
@@ -14,10 +14,11 @@ sudo docker exec meic_solrr bin/solr delete -c courses
 
 curl -X POST -H 'Content-type:application/json' --data-binary "@advanced_schema.json" http://localhost:8983/solr/speciesv2/schema
 
--- copy kingdom_synonyms.txt to solr
+-- copy kingdom_synonyms.txt to solr // cs_synonyms.txt
 
 sudo docker cp /home/n00n/Desktop/MEIC/PRI/MEIC-PRI/milestone2/schemas/kingdom_synonyms.txt meic_solr:/var/solr/data/speciesv2/conf
-
+sudo docker cp /home/n00n/Desktop/MEIC/PRI/MEIC-PRI/milestone2/schemas/cs_synonyms.txt meic_solr:/var/solr/data/speciesv2/conf
+sudo docker cp /home/n00n/Desktop/MEIC/PRI/MEIC-PRI/milestone2/schemas/intro_section_synonyms.txt meic_solr:/var/solr/data/speciesv2/conf
 
 -- create core
 

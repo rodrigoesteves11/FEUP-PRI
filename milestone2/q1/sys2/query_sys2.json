@@ -1,5 +1,5 @@
 {
-    "query": "(dangerous venomous animal) AND Europe ",
+    "query": "(dangerous venomous animal^2) AND Europe ",
     "fields": "id, name, kingdom, introduction, sections, score",
     "params": {
         "defType": "edismax",

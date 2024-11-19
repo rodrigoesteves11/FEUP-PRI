@@ -10,7 +10,7 @@
                 "filters": [
                     {
                         "class": "solr.SynonymGraphFilterFactory",
-                        "synonyms": "synonyms.txt",
+                        "synonyms": "intro_section_synonyms.txt",
                         "expand": true
                     },
                     {
@@ -28,7 +28,7 @@
                 "filters": [
                     {
                         "class": "solr.SynonymGraphFilterFactory",
-                        "synonyms": "synonyms.txt",
+                        "synonyms": "intro_section_synonyms.txt",
                         "expand": true
                     },
                     {
@@ -73,6 +73,40 @@
                     }
                 ]
             }
+        },
+        {
+            "name": "convert_conservation_status",
+            "class": "solr.TextField",
+            "indexAnalyzer": {
+                "tokenizer": {
+                    "class": "solr.KeywordTokenizerFactory"
+                },
+                "filters": [
+                    {
+                        "class": "solr.SynonymGraphFilterFactory",
+                        "synonyms": "cs_synonyms.txt",
+                        "expand": true
+                    },
+                    {
+                        "class": "solr.LowerCaseFilterFactory"
+                    }
+                ]
+            },
+            "queryAnalyzer": {
+                "tokenizer": {
+                    "class": "solr.KeywordTokenizerFactory"
+                },
+                "filters": [
+                    {
+                        "class": "solr.SynonymGraphFilterFactory",
+                        "synonyms": "cs_synonyms.txt",
+                        "expand": true
+                    },
+                    {
+                        "class": "solr.LowerCaseFilterFactory"
+                    }
+                ]
+            }
         }
     ],
     "add-field": [
@@ -91,6 +125,12 @@
         {
             "name": "kingdom",
             "type": "convert_kingdom",
+            "indexed": true,
+            "stored": true
+        },
+        {
+            "name": "conservation_status",
+            "type": "convert_conservation_status",
             "indexed": true,
             "stored": true
         }

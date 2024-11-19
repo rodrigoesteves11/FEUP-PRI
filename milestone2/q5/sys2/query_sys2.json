@@ -1,5 +1,5 @@
 {
-    "query": "(perigous dangerous) AND australia",
+    "query": "(venomous dangerous) AND australia",
     "fields": "id, name, kingdom, introduction, sections, score",
     "params": {
         "defType": "edismax",
