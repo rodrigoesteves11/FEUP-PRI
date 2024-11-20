@@ -4,11 +4,12 @@ Abutilon_grandifolium
 Osmoderma_eremita
 Calamistrum_minutum
 Quercus_rotundifolia
+Anzia_centrifuga
 Zodarion_styliferum
 Corema_album
 Barbastella_barbastellus
+Anaecypris
 Mobula_mobular
-Anzia_centrifuga
 Rhopalostylis_cheesemanii
 Cynanchum_nigrum
 Cephalanthera_conferta
@@ -47,4 +48,3 @@ Amphimallon_seidlitzi
 Ceramida_moelleri
 Acilius_duvergeri
 Amaurobius_occidentalis
-Calathus_hispanicus
