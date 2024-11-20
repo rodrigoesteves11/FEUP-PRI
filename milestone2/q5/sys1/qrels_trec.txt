@@ -13,7 +13,7 @@
 0 0 Malo_maxima 1
 0 0 Arbanitis_rapax 0
 0 0 Suta_suta 1
-0 0 Pseudonaja_affinis 
+0 0 Pseudonaja_affinis 1
 0 0 Badumna_insignis 0
 0 0 Parasuta 1
 0 0 Pythonidae 0
