@@ -82,8 +82,6 @@ def fetch_species_data(species_name):
                         conservation_status = th.text.strip()
                         is_conservation_status = False
                 
-                scientific_classification['Species'] = species_name
-                
                 if len(image_tags) > 0:
                     image_url = "https:" + image_tags[0]['src']
                     print(f"Imagem encontrada: {image_url}")
