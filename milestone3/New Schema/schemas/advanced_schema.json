@@ -1,0 +1,138 @@
+{
+    "add-field-type": [
+        {
+            "name": "advanced_search",
+            "class": "solr.TextField",
+            "indexAnalyzer": {
+                "tokenizer": {
+                    "class": "solr.StandardTokenizerFactory"
+                },
+                "filters": [
+                    {
+                        "class": "solr.SynonymGraphFilterFactory",
+                        "synonyms": "intro_section_synonyms.txt",
+                        "expand": true
+                    },
+                    {
+                        "class": "solr.LowerCaseFilterFactory"
+                    },
+                    {
+                        "class": "solr.PorterStemFilterFactory"
+                    }
+                ]
+            },
+            "queryAnalyzer": {
+                "tokenizer": {
+                    "class": "solr.StandardTokenizerFactory"
+                },
+                "filters": [
+                    {
+                        "class": "solr.SynonymGraphFilterFactory",
+                        "synonyms": "intro_section_synonyms.txt",
+                        "expand": true
+                    },
+                    {
+                        "class": "solr.LowerCaseFilterFactory"
+                    },
+                    {
+                        "class": "solr.PorterStemFilterFactory"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "convert_kingdom",
+            "class": "solr.TextField",
+            "indexAnalyzer": {
+                "tokenizer": {
+                    "class": "solr.KeywordTokenizerFactory"
+                },
+                "filters": [
+                    {
+                        "class": "solr.SynonymGraphFilterFactory",
+                        "synonyms": "kingdom_synonyms.txt",
+                        "expand": true
+                    },
+                    {
+                        "class": "solr.LowerCaseFilterFactory"
+                    }
+                ]
+            },
+            "queryAnalyzer": {
+                "tokenizer": {
+                    "class": "solr.KeywordTokenizerFactory"
+                },
+                "filters": [
+                    {
+                        "class": "solr.SynonymGraphFilterFactory",
+                        "synonyms": "kingdom_synonyms.txt",
+                        "expand": true
+                    },
+                    {
+                        "class": "solr.LowerCaseFilterFactory"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "convert_conservation_status",
+            "class": "solr.TextField",
+            "indexAnalyzer": {
+                "tokenizer": {
+                    "class": "solr.KeywordTokenizerFactory"
+                },
+                "filters": [
+                    {
+                        "class": "solr.SynonymGraphFilterFactory",
+                        "synonyms": "cs_synonyms.txt",
+                        "expand": true
+                    },
+                    {
+                        "class": "solr.LowerCaseFilterFactory"
+                    }
+                ]
+            },
+            "queryAnalyzer": {
+                "tokenizer": {
+                    "class": "solr.KeywordTokenizerFactory"
+                },
+                "filters": [
+                    {
+                        "class": "solr.SynonymGraphFilterFactory",
+                        "synonyms": "cs_synonyms.txt",
+                        "expand": true
+                    },
+                    {
+                        "class": "solr.LowerCaseFilterFactory"
+                    }
+                ]
+            }
+        }
+    ],
+    "replace-field": [
+        {
+            "name": "introduction",
+            "type": "advanced_search",
+            "indexed": true,
+            "stored": true
+        },
+        {
+            "name": "sections",
+            "type": "advanced_search",
+            "indexed": true,
+            "stored": true
+        },
+        {
+            "name": "kingdom",
+            "type": "convert_kingdom",
+            "indexed": true,
+            "stored": true
+        },
+        {
+            "name": "conservation_status",
+            "type": "convert_conservation_status",
+            "indexed": true,
+            "stored": true
+        }
+    ]
+}
