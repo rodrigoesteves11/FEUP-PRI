@@ -104,4 +104,6 @@ def filter_wikiSpecies_gpt():
 
 #filter_wikiSpecies()
 
+read_wikiSpecies()
+WikiSpeciesUnderScore()
 filter_wikiSpecies_gpt()
