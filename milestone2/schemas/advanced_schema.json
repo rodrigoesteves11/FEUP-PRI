@@ -109,7 +109,7 @@
             }
         }
     ],
-    "replace-field": [
+    "add-field": [
         {
             "name": "introduction",
             "type": "advanced_search",

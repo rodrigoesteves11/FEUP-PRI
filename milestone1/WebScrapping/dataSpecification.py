@@ -2,9 +2,9 @@ import json
 import csv
 
 file_paths = [
-    'JsonParts/Species_data1.json', 'JsonParts/Species_data2.json', 'JsonParts/Species_data3.json', 
-    'JsonParts/Species_data4.json', 'JsonParts/Species_data5.json', 'JsonParts/Species_data6.json',
-    'JsonParts/Species_data7.json', 'JsonParts/Species_data8.json'
+    '../JsonParts/Species_data1.json', '../JsonParts/Species_data2.json', '../JsonParts/Species_data3.json', 
+    '../JsonParts/Species_data4.json', '../JsonParts/Species_data5.json', '../JsonParts/Species_data6.json',
+    '../JsonParts/Species_data7.json', '../JsonParts/Species_data8.json'
 ]
 
 

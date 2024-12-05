@@ -30,4 +30,4 @@ uploadSchema:
 
 # Allocates documents to solr
 uploadDocuments:
-	curl -X POST -H 'Content-type:application/json' --data-binary "@Web-scrapping/transformed_species_data.json" http://localhost:8983/solr/$(CORE_NAME)/update?commit=true
+	curl -X POST -H 'Content-type:application/json' --data-binary "@milestone1/WebScrapping/transformed_species_data.json" http://localhost:8983/solr/$(CORE_NAME)/update?commit=true
