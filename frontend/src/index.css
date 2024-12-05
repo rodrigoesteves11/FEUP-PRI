@@ -1,0 +1,129 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #51a687;
+  color: #053926;
+
+  /*height: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;*/ /* Centers vertically */
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.header-contents {
+  display: flex;
+  align-items: left; 
+}
+
+.centered-container-search {
+  h1 {
+    font-size: 24px;
+    display: flex;
+    flex-direction: row;
+    width: 40%;
+  }
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: 60px;
+  padding: 20px;
+  border-radius: 8px; 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+  text-align: center;
+  margin-top: 20px;
+  background-color: #e3fff5;
+}
+
+.centered-container-results {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+  width: 80%;
+  height: 70%;
+  padding: 20px;
+  background-color: #e3fff5;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* the image should be on the left part of the result box */
+.single-result {
+  display: flex;
+  flex-direction: row;
+  max-width: 300px;
+  max-height: 100px;
+}
+
+.result-text-content {
+  display: flex;
+  flex-direction: column;
+}
+
+div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Styling for the button and input */
+input {
+  padding: 10px;
+  margin: 10px 10px;
+  width: 300px;
+  max-width: 400px; /* Optional: restrict width for input and button */
+  display: block; /* Make button and input block level */
+  font-size: 16px;
+  align-items: left !important;
+  border-radius: 4px;
+}
+
+button {
+  width: 150px;
+  height: 40px;
+  margin: 10px 0;
+  display:block;
+  font-size: 16px;
+  background-color: #0E9464;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+button:hover {
+  background-color: #0A6A47; /* Change button color on hover */
+}
+
+/* Styling for the list of results */
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 20px;
+  text-align: left; /* Align content of each result left */
+}
+
+img {
+  max-width: 150px; /* Limit image size */
+  margin-top: 10px;
+  border-radius: 8px; /* Optional: rounded corners for images */
+}
+
