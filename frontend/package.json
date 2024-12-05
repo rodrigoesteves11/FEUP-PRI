@@ -2,6 +2,7 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:8983",
   "dependencies": {
     "@chakra-ui/react": "^3.2.2",
     "@emotion/react": "^11.13.5",

@@ -16,7 +16,7 @@ const SolrSearchApp = () => {
     console.log("fetchData called");
     try {
       const solrQuery = encodeURIComponent(query);
-      const url = `http://localhost:8983/solr/speciesv1/select?q=${solrQuery}&wt=json`;
+      const url = `http://localhost:3000/solr/species/select?defType=edismax&indent=true&q.op=AND&q=${solrQuery}&qf=introduction%20sections&wt=json`;
       console.log("Fetching URL:", url);
 
       const response = await fetch(url);
