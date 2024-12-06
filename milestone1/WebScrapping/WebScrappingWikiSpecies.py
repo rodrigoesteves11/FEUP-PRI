@@ -86,13 +86,13 @@ def filter_wikiSpecies_gpt():
     url = 'https://species.wikimedia.org/wiki/'
     
     # Reading all lines at once to avoid reading from the file in threads
-    with open("WikiSpeciesUnderScore.txt", "r") as fileR:
+    with open("wtemp.txt", "r") as fileR:
         lines = fileR.readlines()
 
     file_lock = Lock()  # Lock to handle file writing in threads
 
     # Using ThreadPoolExecutor to manage multiple threads
-    with ThreadPoolExecutor(max_workers=50) as executor:
+    with ThreadPoolExecutor(max_workers=4) as executor:
         futures = [executor.submit(fetch_and_filter_species, line, url, file_lock) for line in lines]
 
         # Ensuring all threads complete their work
