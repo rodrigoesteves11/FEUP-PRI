@@ -111,7 +111,7 @@ def fetch_species_data(species_name):
     return species_data
 
 def get_wikipedia_pages():
-    with open("../newWikiTXTParts/wikiPart3.txt", "r") as fileR: #HERE 1 2 3 4 5 6 7 8 
+    with open("../newWikiTXTParts/wikiPart4.txt", "r") as fileR: #HERE 1 2 3 4 5 6 7 8 
         species_list = [line.strip().replace("_", " ") for line in fileR]
 
     species_data = {}
@@ -122,7 +122,7 @@ def get_wikipedia_pages():
     for result in results:
         species_data.update(result)
 
-    with open("../newJsonParts/Species_data3.json", "w", encoding="utf-8") as json_file: #HERE 1 2 3 4 5 6 7 8 
+    with open("../newJsonParts/Species_data4.json", "w", encoding="utf-8") as json_file: #HERE 1 2 3 4 5 6 7 8 
         json.dump(species_data, json_file, ensure_ascii=False, indent=4)
 
 get_wikipedia_pages()
