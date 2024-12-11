@@ -31,3 +31,18 @@ uploadSchema:
 # Allocates documents to solr
 uploadDocuments:
 	curl -X POST -H 'Content-type:application/json' --data-binary "@milestone1/WebScrapping/transformed_species_data.json" http://localhost:8983/solr/$(CORE_NAME)/update?commit=true
+
+
+# Allocates synonyms to solr semantic
+uploadSynonymsSemantic:
+	sudo docker cp milestone3/'New Schema'/schema/kingdom_synonyms.txt meic_solr:/var/solr/data/$(CORE_NAME)/conf
+	sudo docker cp milestone3/'New Schema'/schema/cs_synonyms.txt meic_solr:/var/solr/data/$(CORE_NAME)/conf
+	sudo docker cp milestone3/'New Schema'/schema/intro_section_synonyms.txt meic_solr:/var/solr/data/$(CORE_NAME)/conf
+
+# Allocates advanced schema to solr semantic
+uploadSchemaSemantic:
+	curl -X POST -H 'Content-type:application/json' --data-binary "@milestone3/New Schema/schema/semantic_schema.json" http://localhost:8983/solr/$(CORE_NAME)/schema
+
+# Allocates documents to solr semantic
+#uploadDocumentsSemantic:
+#	curl -X POST -H 'Content-type:application/json' --data-binary "@milestone3/New Schema/schema/semantic_species.json" http://localhost:8983/solr/$(CORE_NAME)/update?commit=true
