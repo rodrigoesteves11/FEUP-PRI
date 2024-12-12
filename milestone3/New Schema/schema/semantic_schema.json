@@ -107,9 +107,16 @@
                     }
                 ]
             }
+        },
+        {
+            "name": "speciesVector",
+            "class": "solr.DenseVectorField",
+            "vectorDimension": 384,
+            "similarityFunction": "cosine",
+            "knnAlgorithm": "hnsw"
         }
     ],
-    "replace-field": [
+    "add-field": [
         {
             "name": "introduction",
             "type": "advanced_search",
@@ -131,6 +138,12 @@
         {
             "name": "conservation_status",
             "type": "convert_conservation_status",
+            "indexed": true,
+            "stored": true
+        },
+        {
+            "name": "vector",
+            "type": "speciesVector",
             "indexed": true,
             "stored": true
         }

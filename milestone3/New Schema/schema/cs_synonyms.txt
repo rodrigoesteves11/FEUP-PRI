@@ -1,0 +1,13 @@
+Endangered => Endangered
+Vulnerable => Endangered
+Near Threatened => Endangered
+Threatened => Endangered
+Extinct in the Wild => Endangered
+Critically Endangered => Endangered
+
+Endangered => Endangered
+Vulnerable => Vulnerable
+Near Threatened => Near Threatened
+Threatened => Threatened
+Extinct in the Wild => Extinct in the Wild
+Critically Endangered => Critically Endangered
