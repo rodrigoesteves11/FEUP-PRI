@@ -10,3 +10,4 @@ aquatic, marine, water-based, oceanic, aquatic life
 endangered, threatened, at risk, vulnerable, in danger
 australia, Australian
 europe, european
+invasive, encroaching, incursive, invading, non-native
