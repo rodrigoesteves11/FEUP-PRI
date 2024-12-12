@@ -1,0 +1,300 @@
+Caenolestes_caniventer
+Boiga_thackerayi
+Amaurobius_ferox
+Lemmus_lemmus
+Aotinae
+Glironia
+Lagurus_lagurus
+Lutreolina_crassicaudata
+Caluromys_philander
+Eulemur_collaris
+Dendrohyrax
+Hylamorpha_elegans
+Hyla_cinerea
+Chelisoches_morio
+Choloepus_hoffmanni
+Maladera_castanea
+Acomys_russatus
+Proteles_cristata
+Apteronotus_albifrons
+Cadra_figulilella
+Carcharias_fronto
+Scolopax_minor
+Cheirogaleus_lavasoensis
+Tarsius_dentatus
+Astroboa_nuda
+Dipodomys
+Dasypus
+Stegostoma_fasciatum
+Crotalus_catalinensis
+Microcebus_griseorufus
+Xantusia_arizonae
+Araneus_ventricosus
+Pilherodius
+Callosamia_promethea
+Nyctanassa_violacea
+Surnia_ulula
+Bactrocera_tryoni
+Chasiempis
+Bearded_dragon
+Sylvilagus_audubonii
+Strepsirrhini
+Ceratophrys_stolzmanni
+Ammospermophilus_leucurus
+Lasioglossum_figueresi
+Phodopus_roborovskii
+Formica_polyctena
+Scotinomys_teguina
+Procavia_capensis
+Mitsukurinidae
+Calliphora_vicina
+Demansia_psammophis
+Austrelaps_superbus
+Chiropsalmus_quadrumanus
+Pseudonaja
+Simoselaps
+Acanthophis_antarcticus
+Cacophis
+Cacophis_squamulosus
+Hapalochlaena_maculosa
+Atrax
+Pseudechis_australis
+Suta_suta
+Atracinae
+Cacophis_krefftii
+Parasuta
+Furina
+Pseudophryne_pengilleyi
+Acanthophis_pyrrhus
+Hoplocephalus_bitorquatus
+Vermicella_snelli
+Oxyuranus_microlepidotus
+Austrelaps
+Tropidechis_carinatus
+Pseudonaja_guttata
+Hemiaspis
+Suta_nigriceps
+Oxyuranus_temporalis
+Hydrophis_kingii
+Arbanitis_rapax
+Suta_fasciata
+Anilios_bituberculatus
+Liasis_fuscus
+Papilio_anactus
+Aristolochia_acuminata
+Anilios_broomi
+Lobelia_concolor
+Pachygone_ovata
+Goodenia_discophora
+Guioa
+Cacatua_pastinator_pastinator
+Gastrolobium_calycinum
+Uloboridae
+Acacia_praemorsa
+Pimelea_neoanglica
+Acacia_imitans
+Pittosporum_angustifolium
+Varanus_mitchelli
+Aegotheles_cristatus
+Acacia_wilsonii
+Androcalva_tatei
+Barbastella_barbastellus
+Gomphus_graslinii
+Cobitis_paludica
+Archaeolocerta_monticola
+Austropotamobius_pallipes
+Arvicola_sapidus
+Mobula_mobular
+Chioglossa_lusitanica
+Rana_iberica
+Calamistrum_minutum
+Achondrostoma_arcasii
+Melitaea_athalia
+Triturus_pygmaeus
+Coenagrion_mercuriale
+Lutra_lutra
+Bison_bonasus
+Epipactis_spiralis
+Apus_apus
+Cerambyx_fasciatus
+Myotis_escalerai
+Aquila_clanga
+Amazona
+Colinus_virginianus
+Equus_caballus_ferus
+Acilius_duvergeri
+Carcharhinus_iranzae
+Triturus
+Podarcis_carbonelli
+Labrus_viridis
+Lanius_meridionalis
+Psammodromus_hispanicus
+Discoglossus_hispanicus
+Anaecypris
+Alytes_obstetricans
+Quercus_cintrana
+Acacia_longifolia
+Apteromantis_aptera
+Trichomanes_speciosum
+Coralliidae
+Columba_trocaz
+Cactodendron
+Haliaetus_albicilla
+Sphinx_achilleae
+Picconia_excelsa
+Alca_arctica
+Cephalanthera_conferta
+Arenaria_montana
+Vipera_seoanei
+Uca
+Abutilon_grandifolium
+Phalacrocorax_atriceps_georgianus
+Hippoglossus_hippoglossus
+Sebastes_mentella
+Mustelus_canis
+Centrophorus_squamosus
+Arctica_islandica
+Rhomboplites
+Capros
+Hexactinellida
+Blennius_pholis
+Pterodroma_incerta
+Lutjanus_apodus
+Centropristis_striata
+Atherinidae
+Acipenser_oxyrinchus_desotoi
+Pagrus_pagrus
+Anarhichas_denticulatus
+Serranus_scriba
+Staurozoa
+Malacanthinae
+Prionotus
+Todarodes_sagittatus
+Latris_lineata
+Sarpa_salpa
+Archosargus_rhomboidalis
+Chaetodon_lunula
+Ascophyllum_nodosum
+Epinephelus_marginatus
+Argyrosomus_inodorus
+Pandalus_borealis
+Bolinus
+Centrolabrus_exoletus
+Mycteroperca_rubra
+Ophiocomina_nigra
+Sebastes_ruberrimus
+Sparus_mormyrus
+Tylosaurus_kansasensis
+Hydrophis_platurus
+Euspira_catena
+Patella_granatina
+Chaetodipterus_faber
+Mugil_liza
+Calanus_elegans
+Archosargus_probatocephalus
+Pomacanthus_arcuatus
+Carcinus_aestuarii
+Stereochilus_marginatus
+Mycteroperca_venenosa
+Mobula_japonica
+Umbrina_cirrosa
+Harpagornis_moorei
+Mesonychoteuthis_hamiltoni
+Mirounga_leonina
+Aublysodontinae
+Proboscidea
+Palaeeudyptinae
+Arthropleuridae
+Galiteuthis_phyllura
+Dreadnoughtus_schrani
+Bovini
+Bullockornis
+Rhincodon_typus
+Aegypius_monachus
+Carnivora
+Cotylorhynchus
+Cephalopoda
+Bruhathkayosaurus
+Balaena_mysticetus
+Gravisauria
+Archaeoindris_fontoynonti
+Canis
+Cetacea
+Acanthicus_adonis
+Garganornis_ballmanni
+Pliosauroidea
+Castoroides
+Pterygotus_bilobus
+Dynamosaurus
+Therizinosaurus_cheloniformis
+Ledumahadi
+Rhizodontida
+Cerambycoidea
+Trepostomatida
+Neospiza_concolor
+Tettigonia
+Motuweta_isolata
+Naarda_leptosigna
+Tupinambis_merianae
+Eidolon_helvum
+Atta_insularis
+Zoosphaerium
+Noctuoidea
+Actinopterygii
+Coniferopsida
+Tadarida_brasiliensis
+Carabus_scabrosus
+Ramphastos_toco
+Lepilemur_edwardsi
+Montastraea
+Americus_gigantea
+Elodea densa
+Musculista senhousia
+Anoplolepis gracilipes
+Alternanthera philoxeroides
+Sargassum muticum
+Hydrilla
+Chauvinia chilensis
+Zaprionus tuberculatus
+Salvinia minima
+Chrysemys elegans
+Osteopilus septentrionalis
+Anisantha tectorum
+Mytilopsis sallei
+Adenanthera falcataria
+Doria dumetorum
+Phytophthora cinnamomi
+Lygodium microphyllum
+Rhamnus cathartica
+Aegilops squarrosa
+Arion ater
+Acantholyda erythrocephala
+Arion vulgaris
+Lonicera maackii
+Pterois
+Bocconia frutescens
+Sixalix atropurpurea
+Cephalopholis argus
+Acanthogobius flavimanus
+Chrysanthemoides monilifera
+Vaginulus occidentalis
+Bassia hyssopifolia
+Ptilinopus chrysogaster
+Astragalus microcymbus
+Bidens amplectens
+Ailuronyx trachygaster
+Agrilus hyperici
+Eikenella
+Candida tropicalis
+Lilioceris
+Pseudanchomenus
+Cirsium hillii
+Bacteriovorax
+Gunniopsis quadrifida
+Typha angustata
+Chondracanthus exasperatus
+Camarhynchus heliobates
+Erica irregularis
+Microlophus bivittatus
+Callitris oblonga
+Hulsea californica
