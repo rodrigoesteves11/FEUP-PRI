@@ -1,0 +1,11 @@
+{
+    "query": "(lifespan years) AND atlantic AND aquatic",
+    "fields": "id, name, kingdom, introduction, sections, score",
+    "params": {
+        "defType": "edismax",
+        "qf": "introduction^4 sections^3",
+        "pf": "introduction^5 sections^3",
+        "ps": 3,
+        "rows": 300
+    }
+}

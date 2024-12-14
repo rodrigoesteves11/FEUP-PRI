@@ -46,7 +46,7 @@ curl -X POST -H 'Content-type:application/json' --data-binary "@transformed_spec
 
 -- Convert qrels into TREC format and then manually judge the relevance (0 for non-relevant, 1 for relevant)
 
-cat qrels.txt | ./scripts/qrels2trec.py > qrels_trec.txt
+cat qrels.txt | ./../scripts/qrels2trec.py > qrels_trec.txt
 
 -- Evaluate results
 
@@ -57,3 +57,15 @@ cat qrels.txt | ./scripts/qrels2trec.py > qrels_trec.txt
 cat results_trec.txt | ./scripts/plot_pr.py --qrels qrels_trec.txt --output prec_rec.png
 
 
+
+-- inside milestone3 easy evaluate
+
+python3 evalute.py Original_System/q2/qrels_trec.txt subset/q2TP.txt
+
+
+
+
+-- pipeline
+./../scripts/query_solr.py --query query.json --uri http://localhost:8983/solr --collection speciesv2 | ./../scripts/solr2trec.py > results_trec.txt
+cat qrels.txt | ./../scripts/qrels2trec.py > qrels_trec.txt
+cat results_trec.txt | ./../scripts/plot_pr.py --qrels qrels_trec.txt --output prec_rec.png

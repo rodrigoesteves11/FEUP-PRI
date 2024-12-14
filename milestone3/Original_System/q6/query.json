@@ -1,0 +1,9 @@
+{
+    "query": "(species negative impact) AND invasive",
+    "fields": "id, name, kingdom, introduction, sections, score",
+    "params": {
+        "defType": "edismax",
+        "qf": "introduction^3 sections",
+        "rows": 300
+    }
+}
