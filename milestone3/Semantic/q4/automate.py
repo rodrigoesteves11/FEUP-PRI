@@ -15,7 +15,7 @@ def solr_combined_query(endpoint, collection, query_text, embedding):
     # Combine edismax query and KNN vector search
     data = {
         "q": f"{query_text}",
-        "fq": f"{{!knn f=vector topK=100}}{embedding}",  # Filter query to include KNN search
+        "fq": f"{{!knn f=vector topK=300}}{embedding}",  # Filter query to include KNN search
         "defType": "edismax",
         "qf": "introduction^3 sections conservation_status^4",
         "rows": 300,
