@@ -9,13 +9,12 @@ def text_to_embedding(text):
     embedding_str = "[" + ",".join(map(str, embedding)) + "]"
     return embedding_str
 
-def solr_combined_query(endpoint, collection, query_text, embedding):
+def solr_combined_query(endpoint, collection, embedding):
     url = f"{endpoint}/{collection}/select"
 
     # Combine edismax query and KNN vector search
     data = {
-        "q": f"{query_text}",
-        "fq": f"{{!knn f=vector topK=80}}{embedding}",  # Filter query to include KNN search
+        "q": f"{{!knn f=vector topK=80}}{embedding}",  # Filter query to include KNN search
         "defType": "edismax",
         "qf": "introduction^3 sections",
         "rows": 300,
@@ -52,13 +51,12 @@ def main():
     solr_endpoint = "http://localhost:8983/solr"
     collection = "semantic"
 
-    query_text = "(activity behavior) AND (night nocturnal)"
     user_query = "Species with night behavior or nocturnal behavior"
     embedding = text_to_embedding(user_query)
     output_file = "results_trec.txt"
 
     try:
-        results = solr_combined_query(solr_endpoint, collection, query_text, embedding)
+        results = solr_combined_query(solr_endpoint, collection, embedding)
         save_results_as_trec(results, output_file)
         print(f"Results saved to {output_file}")
     except requests.HTTPError as e:
