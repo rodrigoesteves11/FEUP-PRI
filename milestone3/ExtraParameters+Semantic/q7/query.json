@@ -1,0 +1,14 @@
+{
+    "query": "(activity behavior) AND (night nocturnal)^2 ",
+    "fields": "id, name, kingdom, introduction, sections, score",
+    "params": {
+        "defType": "edismax",
+        "qf": "introduction^5 sections^4",
+        "pf": "introduction^4 sections^3",
+        "rows": 300,
+        "ps": 5,
+        "qs": 3,
+        "tie": 0.5,
+        "bq": "sections:nocturnal^3 introduction:night^2"
+    }
+}
