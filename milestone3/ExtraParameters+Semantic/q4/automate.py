@@ -17,7 +17,12 @@ def solr_combined_query(endpoint, collection, query_text, embedding):
         "q": f"{query_text}",
         "fq": f"{{!knn f=vector topK=300}}{embedding}",  # Filter query to include KNN search
         "defType": "edismax",
-        "qf": "introduction^3 sections conservation_status^4",
+        "qf": "introduction^4 sections^3 conservation_status^10",
+        "bq": "conservation_status:endangered^10 sections:(Portugal^5 endangered^1)", 
+        "pf": "introduction^4 sections^3 conservation_status^8",
+        "qs": 3,
+        "tie": 0.3,
+        "mm": "2<80%",
         "rows": 300,
         "fl": "id, name, kingdom, introduction, sections, score",
         "wt": "json"
