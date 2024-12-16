@@ -37,9 +37,10 @@ uploadDocuments:
 makeSemantic:
 	sudo docker exec $(CONTAINER_NAME) bin/solr create_core -c semantic
 
-	sudo docker cp milestone2/schemas/kingdom_synonyms.txt meic_solr:/var/solr/data/semantic/conf
-	sudo docker cp milestone2/schemas/cs_synonyms.txt meic_solr:/var/solr/data/semantic/conf
-	sudo docker cp milestone2/schemas/intro_section_synonyms.txt meic_solr:/var/solr/data/semantic/conf
+	sudo docker cp milestone3/Semantic/schema/kingdom_synonyms.txt meic_solr:/var/solr/data/semantic/conf
+	sudo docker cp milestone3/Semantic/schema/cs_synonyms.txt meic_solr:/var/solr/data/semantic/conf
+	sudo docker cp milestone3/Semantic/schema/intro_section_synonyms.txt meic_solr:/var/solr/data/semantic/conf
+	sudo docker cp milestone3/Semantic/schema/stopwords.txt meic_solr:/var/solr/data/semantic/conf
 
 	curl -X POST -H 'Content-type:application/json' --data-binary "@milestone3/Semantic/schema/semantic_schema.json" http://localhost:8983/solr/semantic/schema
 

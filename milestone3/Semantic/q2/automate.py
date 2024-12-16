@@ -15,7 +15,7 @@ def solr_combined_query(endpoint, collection, query_text, embedding):
     # Combine edismax query and KNN vector search
     data = {
         "q": f"{query_text}",
-        "fq": f"{{!knn f=vector topK=80}}{embedding}",  # Filter query to include KNN search
+        "fq": f"{{!knn f=vector topK=60}}{embedding}",  # Filter query to include KNN search
         "defType": "edismax",
         "qf": "introduction^4 sections kingdom^3",
         "pf": "introduction^5",
@@ -54,7 +54,7 @@ def main():
     collection = "semantic"
 
     query_text = "(largest^2 huge^2 size) AND animal"
-    user_query = "Large Huge sized animal"
+    user_query = "Large and Huge sized animal"
     embedding = text_to_embedding(user_query)
     output_file = "results_trec.txt"
 

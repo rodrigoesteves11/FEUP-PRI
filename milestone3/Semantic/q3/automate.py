@@ -54,7 +54,7 @@ def main():
     collection = "semantic"
 
     query_text = "(lifespan years) AND atlantic AND aquatic"
-    user_query = "Lifespan in year of atlantic aquatic species"
+    user_query = "Lifespan in years of atlantic species"
     embedding = text_to_embedding(user_query)
     output_file = "results_trec.txt"
 

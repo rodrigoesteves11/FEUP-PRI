@@ -17,6 +17,9 @@
                         "class": "solr.LowerCaseFilterFactory"
                     },
                     {
+                        "class": "solr.StopFilterFactory", "words":"stopwords.txt"
+                    },
+                    {
                         "class": "solr.PorterStemFilterFactory"
                     }
                 ]
@@ -33,6 +36,9 @@
                     },
                     {
                         "class": "solr.LowerCaseFilterFactory"
+                    },
+                    {
+                        "class": "solr.StopFilterFactory", "words":"stopwords.txt"
                     },
                     {
                         "class": "solr.PorterStemFilterFactory"
