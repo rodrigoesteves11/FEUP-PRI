@@ -52,6 +52,11 @@ cat qrels.txt | ./../scripts/qrels2trec.py > qrels_trec.txt
 
 ./trec_eval/trec_eval qrels_trec.txt results_trec.txt
 
+-- Evaluate UBuntu - Nuno:
+
+valgrind --leak-check=full --track-origins=yes ./../../trec_eval qrels_trec.txt results_trec.txt
+
+
 -- Generate Precision-Recall curve
 
 cat results_trec.txt | ./scripts/plot_pr.py --qrels qrels_trec.txt --output prec_rec.png
