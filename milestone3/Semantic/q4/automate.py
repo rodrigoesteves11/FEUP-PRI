@@ -14,7 +14,8 @@ def solr_combined_query(endpoint, collection, query_text, embedding):
 
     # Combine edismax query and KNN vector search
     data = {
-        "q": f"{{!knn f=vector topK=80}}{embedding}",  # Filter query to include KNN search
+        "q": f"{query_text}",
+        "fq": f"{{!knn f=vector topK=300}}{embedding}",  # Filter query to include KNN search
         "defType": "edismax",
         "qf": "introduction^3 sections conservation_status^4",
         "rows": 300,
@@ -50,12 +51,13 @@ def main():
     solr_endpoint = "http://localhost:8983/solr"
     collection = "semantic"
 
+    query_text = "(endangered^2 species) AND Portugal"
     user_query = "Endangered species in Portugal"
     embedding = text_to_embedding(user_query)
     output_file = "results_trec.txt"
 
     try:
-        results = solr_combined_query(solr_endpoint, collection, embedding)
+        results = solr_combined_query(solr_endpoint, collection, query_text, embedding)
         save_results_as_trec(results, output_file)
         print(f"Results saved to {output_file}")
     except requests.HTTPError as e:
