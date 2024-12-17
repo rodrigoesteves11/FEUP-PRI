@@ -37,14 +37,23 @@ uploadDocuments:
 makeSemantic:
 	sudo docker exec $(CONTAINER_NAME) bin/solr create_core -c semantic
 
-	sudo docker cp milestone2/schemas/kingdom_synonyms.txt meic_solr:/var/solr/data/semantic/conf
-	sudo docker cp milestone2/schemas/cs_synonyms.txt meic_solr:/var/solr/data/semantic/conf
-	sudo docker cp milestone2/schemas/intro_section_synonyms.txt meic_solr:/var/solr/data/semantic/conf
+	sudo docker cp milestone3/Semantic/schema/kingdom_synonyms.txt meic_solr:/var/solr/data/semantic/conf
+	sudo docker cp milestone3/Semantic/schema/cs_synonyms.txt meic_solr:/var/solr/data/semantic/conf
+	sudo docker cp milestone3/Semantic/schema/intro_section_synonyms.txt meic_solr:/var/solr/data/semantic/conf
+	sudo docker cp milestone3/Semantic/schema/stopwords.txt meic_solr:/var/solr/data/semantic/conf
 
 	curl -X POST -H 'Content-type:application/json' --data-binary "@milestone3/Semantic/schema/semantic_schema.json" http://localhost:8983/solr/semantic/schema
 
 	curl -X POST -H 'Content-type:application/json' --data-binary "@milestone3/Semantic/schema/semantic_species.json" http://localhost:8983/solr/semantic/update?commit=true
 
-# Allocates documents to solr semantic
-#uploadDocumentsSemantic:
-#	curl -X POST -H 'Content-type:application/json' --data-binary "@milestone3/New Schema/schema/semantic_species.json" http://localhost:8983/solr/$(CORE_NAME)/update?commit=true
+
+makeFinal:
+	sudo docker exec $(CONTAINER_NAME) bin/solr create_core -c final
+
+	sudo docker cp milestone3/Final/schema/synonyms.txt meic_solr:/var/solr/data/final/conf
+	sudo docker cp milestone3/Final/schema/stopwords.txt meic_solr:/var/solr/data/final/conf
+
+	curl -X POST -H 'Content-type:application/json' --data-binary "@milestone3/Final/schema/final_schema.json" http://localhost:8983/solr/final/schema
+
+	curl -X POST -H 'Content-type:application/json' --data-binary "@milestone3/Final/schema/dataset.json" http://localhost:8983/solr/final/update?commit=true
+

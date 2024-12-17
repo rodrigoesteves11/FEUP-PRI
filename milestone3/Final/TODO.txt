@@ -1,0 +1,10 @@
+CHANGE WITH THE NEW DATASET
+
+CREATE NEW synonyms.txt with the new DATASET
+
+Evaluate results for ~30 queries
+
+For each query weights cant be given  to  words, so only use AND operator and weights for fields
+
+IN THE QUERY always GIVE PRIORITY TO INTRODUCTION and kindom, just like conservation status.
+

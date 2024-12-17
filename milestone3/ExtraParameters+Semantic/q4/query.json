@@ -1,0 +1,14 @@
+{
+    "query": "(endangered^2 species) AND Portugal",
+    "fields": "id, name, kingdom, introduction, sections, score, conservation_status",
+    "params": {
+        "defType": "edismax",
+        "qf": "introduction^4 sections^3 conservation_status^10",
+        "bq": "conservation_status:endangered^10 sections:(Portugal^5 endangered^1)", 
+        "pf": "introduction^4 sections^3 conservation_status^8",
+        "qs": 3,
+        "tie": 0.3,
+        "mm": "2<80%",
+        "rows": 300
+    }
+}
