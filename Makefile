@@ -47,13 +47,13 @@ makeSemantic:
 	curl -X POST -H 'Content-type:application/json' --data-binary "@milestone3/Semantic/schema/semantic_species.json" http://localhost:8983/solr/semantic/update?commit=true
 
 
-makeFinal:
-	sudo docker exec $(CONTAINER_NAME) bin/solr create_core -c final
+makeFrontedSolr:
+	sudo docker exec $(CONTAINER_NAME) bin/solr create_core -c frontend
 
-	sudo docker cp milestone3/Final/schema/synonyms.txt meic_solr:/var/solr/data/final/conf
-	sudo docker cp milestone3/Final/schema/stopwords.txt meic_solr:/var/solr/data/final/conf
+	sudo docker cp milestone3/Frontend_System/schema/synonyms.txt meic_solr:/var/solr/data/frontend/conf
+	sudo docker cp milestone3/Frontend_System/schema/stopwords.txt meic_solr:/var/solr/data/frontend/conf
 
-	curl -X POST -H 'Content-type:application/json' --data-binary "@milestone3/Final/schema/final_schema.json" http://localhost:8983/solr/final/schema
+	curl -X POST -H 'Content-type:application/json' --data-binary "@milestone3/Frontend_System/schema/frontend_schema.json" http://localhost:8983/solr/frontend/schema
 
-	curl -X POST -H 'Content-type:application/json' --data-binary "@milestone3/Final/schema/dataset.json" http://localhost:8983/solr/final/update?commit=true
+	curl -X POST -H 'Content-type:application/json' --data-binary "@milestone3/Frontend_System/schema/dataset.json" http://localhost:8983/solr/frontend/update?commit=true
 

@@ -2,9 +2,9 @@ import json
 import csv
 
 file_paths = [
-    '../JsonParts/Species_data1.json', '../JsonParts/Species_data2.json', '../JsonParts/Species_data3.json', 
-    '../JsonParts/Species_data4.json', '../JsonParts/Species_data5.json', '../JsonParts/Species_data6.json',
-    '../JsonParts/Species_data7.json', '../JsonParts/Species_data8.json'
+    '../newJsonParts/Species_data1.json', '../newJsonParts/Species_data2.json', '../newJsonParts/Species_data3.json', 
+    '../newJsonParts/Species_data4.json', '../newJsonParts/Species_data5.json', '../newJsonParts/Species_data6.json',
+    '../newJsonParts/Species_data7.json', '../newJsonParts/Species_data8.json', '../newJsonParts/Species_data9.json', '../newJsonParts/Species_data10.json'
 ]
 
 
@@ -91,6 +91,7 @@ with open('data.csv', 'w', newline='') as file:
         sectionsSize = 0
         who_discovered = "Yes"
         conservation_status = "No data"
+        newEntries +=1
 
         if(entry.get("conservation_status") != "Not found"):
             conservation_status = entry.get("conservation_status")
@@ -106,6 +107,7 @@ with open('data.csv', 'w', newline='') as file:
                          len(entry.get('introduction')),len(entry.get('sections')), sectionsSize, conservation_status])
 
 
+print(f"New total entries  {newEntries}")
 #### Creates a json global file
 with open('json_global.json', "w") as global_file:
     json.dump(json_global, global_file, indent=4)
