@@ -18,10 +18,10 @@ def solr_combined_query(endpoint, collection, query_text, embedding):
         "fq": f"{{!knn f=vector topK=80}}{embedding}",  # Filter query to include KNN search
         "defType": "edismax",
         "qf": "introduction^4 sections^3",
-        "bq": "sections:(venomous^6 dangerous^5 australia^4) introduction:australia^5",
+        "bq": "sections:(venomous^8 dangerous^6 australia^1) introduction:(venomous^8 dangerous^6 australia^2)",
         "pf": "introduction^5 sections^4",
         "tie": 0.4,
-        "mm": "2<75%",
+        "mm": "3<100%",
         "rows": 300,
         "fl": "id, name, kingdom, introduction, sections, score",
         "wt": "json"

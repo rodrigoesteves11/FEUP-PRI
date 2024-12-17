@@ -1,0 +1,10 @@
+{
+    "query": "(venomous dangerous) AND australia",
+    "fields": "id, name, kingdom, introduction, sections, score",
+    "params": {
+        "defType": "edismax",
+        "q.op": "AND",
+        "qf": "introduction^3 sections",
+        "rows": 30
+    }
+}
