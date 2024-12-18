@@ -37,11 +37,10 @@ interface SearchResult {
   kingdom?: string;
   order?: string;
   sections?: string;
-  species?: string;
   who_discovered?: string;
 }
 
-const removeItens: string[] = ["icon_edit", "Status_iucn"];
+const removeItens: string[] = ["icon_edit", "Status", "infobox"];
 
 const shine = keyframes`
   to {
@@ -165,7 +164,7 @@ const SolrSearchApp: React.FC = () => {
 
     try {
       const solrQuery = encodeURIComponent(query);
-      const url = `http://localhost:3000/solr/species/select?defType=edismax&indent=true&q.op=AND&q=${solrQuery}&qf=introduction%20sections&wt=json`;
+      const url = `http://localhost:3000/solr/frontend/select?defType=edismax&indent=true&q.op=AND&q=${solrQuery}&qf=introduction^2%20sections&wt=json`;
       console.log("Fetching URL:", url);
 
       const response = await fetch(url);
@@ -231,7 +230,7 @@ const SolrSearchApp: React.FC = () => {
               variant="outlined"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="E.g., Venomous snakes in Portugal"
+              placeholder="Ex.: Venomous snakes in Portugal"
               fullWidth
               onKeyDown={(e) => {
                 if (e.key === "Enter") {
@@ -308,7 +307,7 @@ const SolrSearchApp: React.FC = () => {
                           {result.name?.[0] || "Name Not Available."}
                         </Typography>
                         <Typography variant="body2">
-                          {result.introduction?.[0] ||
+                          {result.introduction ||
                             "Introduction Not Available."}
                         </Typography>
                       </Box>
@@ -348,7 +347,7 @@ const SolrSearchApp: React.FC = () => {
               position: "absolute",
               right: 8,
               top: 8,
-              color: theme.palette.grey[500],
+              color: theme.palette.primary.main,
             })}
           >
             <CloseIcon />
@@ -384,31 +383,27 @@ const SolrSearchApp: React.FC = () => {
               <Box mt={1}>
                 <DetailItem
                   label="Conservation Status:"
-                  value={selectedResult?.conservation_status?.[0] || "N/A"}
+                  value={selectedResult?.conservation_status || "N/A"}
                 />
                 <DetailItem
                   label="Kingdom:"
-                  value={selectedResult?.kingdom?.[0] || "N/A"}
+                  value={selectedResult?.kingdom || "N/A"}
                 />
                 <DetailItem
                   label="Order:"
-                  value={selectedResult?.order?.[0] || "N/A"}
+                  value={selectedResult?.order || "N/A"}
                 />
                 <DetailItem
                   label="Family:"
-                  value={selectedResult?.family?.[0] || "N/A"}
+                  value={selectedResult?.family || "N/A"}
                 />
                 <DetailItem
                   label="Genus:"
-                  value={selectedResult?.genus?.[0] || "N/A"}
-                />
-                <DetailItem
-                  label="Species:"
-                  value={selectedResult?.species || "N/A"}
+                  value={selectedResult?.genus || "N/A"}
                 />
                 <DetailItem
                   label="Discovered by:"
-                  value={selectedResult?.who_discovered?.[0] || "N/A"}
+                  value={selectedResult?.who_discovered || "N/A"}
                 />
               </Box>
             </Box>
@@ -416,7 +411,7 @@ const SolrSearchApp: React.FC = () => {
             <Box sx={{ mt: 1 }}>
               <DetailItem
                 label="Introduction:"
-                value={selectedResult?.introduction?.[0] || "N/A"}
+                value={selectedResult?.introduction|| "N/A"}
               />
               <DetailItem
                 label="Sections:"
