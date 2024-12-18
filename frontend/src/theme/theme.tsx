@@ -1,16 +1,17 @@
+// theme.js
 import { createTheme } from "@mui/material/styles";
 
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#0E9464",
+      main: "#216b39",
     },
     secondary: {
       main: "#053926",
     },
-    background: {
-      default: "#51a687",
-    },
+    // background: {
+    //   default: "#aed6bf",
+    // },
   },
   typography: {
     fontFamily: "'Montserrat', sans-serif",
@@ -28,6 +29,16 @@ const theme = createTheme({
     },
     body2: {
       fontSize: "0.875rem",
+    },
+  },
+  components: {
+    MuiCssBaseline: {
+      styleOverrides: {
+        body: {
+          background: "radial-gradient(circle, rgba(174,214,191,1) 0%, rgba(143,190,167,1) 100%)",
+          minHeight: "100vh",
+        },
+      },
     },
   },
 });
